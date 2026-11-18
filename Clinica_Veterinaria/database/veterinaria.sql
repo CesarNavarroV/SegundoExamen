@@ -173,3 +173,4 @@ GRANT EXECUTE ON PROCEDURE veterinaria.sp_insertar_mascota TO 'vet_app'@'localho
 GRANT EXECUTE ON PROCEDURE veterinaria.sp_actualizar_mascota TO 'vet_app'@'localhost';
 GRANT EXECUTE ON PROCEDURE veterinaria.sp_eliminar_mascota TO 'vet_app'@'localhost';
 GRANT EXECUTE ON PROCEDURE veterinaria.sp_listar_mascotas_con_dueno TO 'vet_app'@'localhost';
+
