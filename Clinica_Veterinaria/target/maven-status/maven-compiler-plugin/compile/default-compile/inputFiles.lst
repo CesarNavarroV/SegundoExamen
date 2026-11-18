@@ -3,12 +3,11 @@ C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria
 C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\model\Cliente.java
 C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\model\Especie.java
 C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\model\Mascota.java
+C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\repository\ConfiguracionMySQL.java
 C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\repository\PersistenciaException.java
 C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\repository\RepositorioCliente.java
 C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\repository\RepositorioClienteMySQL.java
-C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\repository\RepositorioClienteTxt.java
 C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\repository\RepositorioMascota.java
 C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\repository\RepositorioMascotaMySQL.java
-C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\repository\RepositorioMascotaTxt.java
 C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\service\VeterinariaService.java
 C:\Users\pc4a5\OneDrive\Documents\GitHub\Cesar\SegundoExamen\Clinica_Veterinaria\src\main\java\examen\veterinaria\view\VentanaVeterinaria.java

@@ -41,6 +41,8 @@ INSERT INTO mascota (codigo, nombre, especie, edad, cedula_cliente) VALUES
 
 CREATE USER IF NOT EXISTS 'vet_definer'@'localhost' IDENTIFIED BY 'VetDefiner123!';
 CREATE USER IF NOT EXISTS 'vet_app'@'localhost' IDENTIFIED BY 'VetApp123!';
+ALTER USER 'vet_definer'@'localhost' IDENTIFIED BY 'VetDefiner123!';
+ALTER USER 'vet_app'@'localhost' IDENTIFIED BY 'VetApp123!';
 
 GRANT SELECT, INSERT ON TABLE cliente TO 'vet_definer'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE mascota TO 'vet_definer'@'localhost';
@@ -173,4 +175,3 @@ GRANT EXECUTE ON PROCEDURE veterinaria.sp_insertar_mascota TO 'vet_app'@'localho
 GRANT EXECUTE ON PROCEDURE veterinaria.sp_actualizar_mascota TO 'vet_app'@'localhost';
 GRANT EXECUTE ON PROCEDURE veterinaria.sp_eliminar_mascota TO 'vet_app'@'localhost';
 GRANT EXECUTE ON PROCEDURE veterinaria.sp_listar_mascotas_con_dueno TO 'vet_app'@'localhost';
-
