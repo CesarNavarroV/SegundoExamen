@@ -39,9 +39,15 @@ INSERT INTO mascota (codigo, nombre, especie, edad, cedula_cliente) VALUES
     ('M02', 'Rocky', 'PERRO', 5, '202220222'),
     ('M03', 'Nina', 'PERRO', 1, '101110111');
 
+CREATE USER IF NOT EXISTS 'vet_definer'@'localhost' IDENTIFIED BY 'VetDefiner123!';
+CREATE USER IF NOT EXISTS 'vet_app'@'localhost' IDENTIFIED BY 'VetApp123!';
+
+GRANT SELECT, INSERT ON TABLE cliente TO 'vet_definer'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE mascota TO 'vet_definer'@'localhost';
+
 DELIMITER //
 
-CREATE PROCEDURE sp_listar_clientes()
+CREATE DEFINER='vet_definer'@'localhost' PROCEDURE sp_listar_clientes()
 SQL SECURITY DEFINER
 BEGIN
     SELECT cedula, nombre, telefono
@@ -49,7 +55,7 @@ BEGIN
     ORDER BY cedula;
 END//
 
-CREATE PROCEDURE sp_insertar_cliente(
+CREATE DEFINER='vet_definer'@'localhost' PROCEDURE sp_insertar_cliente(
     IN p_cedula VARCHAR(20),
     IN p_nombre VARCHAR(80),
     IN p_telefono VARCHAR(20)
@@ -65,7 +71,7 @@ BEGIN
     VALUES (p_cedula, p_nombre, p_telefono);
 END//
 
-CREATE PROCEDURE sp_listar_mascotas()
+CREATE DEFINER='vet_definer'@'localhost' PROCEDURE sp_listar_mascotas()
 SQL SECURITY DEFINER
 BEGIN
     SELECT codigo, nombre, especie, edad, cedula_cliente
@@ -73,7 +79,7 @@ BEGIN
     ORDER BY codigo;
 END//
 
-CREATE PROCEDURE sp_insertar_mascota(
+CREATE DEFINER='vet_definer'@'localhost' PROCEDURE sp_insertar_mascota(
     IN p_codigo VARCHAR(15),
     IN p_nombre VARCHAR(80),
     IN p_especie ENUM('PERRO', 'GATO', 'OTRO'),
@@ -96,7 +102,7 @@ BEGIN
     VALUES (p_codigo, p_nombre, p_especie, p_edad, p_cedula_cliente);
 END//
 
-CREATE PROCEDURE sp_actualizar_mascota(
+CREATE DEFINER='vet_definer'@'localhost' PROCEDURE sp_actualizar_mascota(
     IN p_codigo VARCHAR(15),
     IN p_nombre VARCHAR(80),
     IN p_especie ENUM('PERRO', 'GATO', 'OTRO'),
@@ -123,7 +129,7 @@ BEGIN
     WHERE codigo = p_codigo;
 END//
 
-CREATE PROCEDURE sp_eliminar_mascota(
+CREATE DEFINER='vet_definer'@'localhost' PROCEDURE sp_eliminar_mascota(
     IN p_codigo VARCHAR(15)
 )
 SQL SECURITY DEFINER
@@ -137,7 +143,7 @@ BEGIN
     WHERE codigo = p_codigo;
 END//
 
-CREATE PROCEDURE sp_listar_mascotas_con_dueno()
+CREATE DEFINER='vet_definer'@'localhost' PROCEDURE sp_listar_mascotas_con_dueno()
 SQL SECURITY DEFINER
 BEGIN
     SELECT m.codigo,
@@ -152,3 +158,18 @@ BEGIN
 END//
 
 DELIMITER ;
+
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_listar_clientes TO 'vet_definer'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_insertar_cliente TO 'vet_definer'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_listar_mascotas TO 'vet_definer'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_insertar_mascota TO 'vet_definer'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_actualizar_mascota TO 'vet_definer'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_eliminar_mascota TO 'vet_definer'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_listar_mascotas_con_dueno TO 'vet_definer'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_listar_clientes TO 'vet_app'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_insertar_cliente TO 'vet_app'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_listar_mascotas TO 'vet_app'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_insertar_mascota TO 'vet_app'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_actualizar_mascota TO 'vet_app'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_eliminar_mascota TO 'vet_app'@'localhost';
+GRANT EXECUTE ON PROCEDURE veterinaria.sp_listar_mascotas_con_dueno TO 'vet_app'@'localhost';
